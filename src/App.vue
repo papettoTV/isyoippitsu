@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <HelloWorld msg="Welcome to Your Vue.js App" @emitmethod="onEmitMethod" />
 </template>
 
 <script>
@@ -8,6 +8,11 @@ import HelloWorld from "./components/HelloWorld.vue"
 
 export default {
   name: "App",
+  methods: {
+    onEmitMethod(e) {
+      console.log("onEmitMethod", e)
+    },
+  },
   components: {
     HelloWorld,
   },
