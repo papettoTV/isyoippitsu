@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button @click="$emit('emitmethod')">emit</button>
+    <button @click="$emit('emitmethod', 'callemit')">emit</button>
   </div>
 </template>
 
