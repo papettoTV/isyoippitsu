@@ -1,25 +1,47 @@
 <template>
   <div class="hello">
     <h1>遺書一筆</h1>
-    <input-form @inputBody="onInputBody"> </input-form>
+    <input-form v-if="!isConfirm" @inputBody="onInputBody"> </input-form>
+    <input-confirm-form
+      v-if="isConfirm"
+      @save="onSave"
+      @edit="onEdit"
+      :body="body"
+    >
+    </input-confirm-form>
   </div>
 </template>
 
 <script>
 import InputForm from "./InputForm.vue"
+import InputConfirmForm from "./InputConfirmForm.vue"
 
 export default {
   name: "HelloWorld",
   emits: ["emitmethod"],
+  data() {
+    return {
+      body: "",
+      isConfirm: false,
+    }
+  },
   methods: {
     onInputBody(e) {
       console.log("onInputBody", e)
       this.isConfirm = true
       this.body = e
     },
+    onSave(body) {
+      console.log("onSave", body)
+    },
+    onEdit(body) {
+      console.log("onEdit", body)
+      this.isConfirm = false
+    },
   },
   components: {
     InputForm,
+    InputConfirmForm,
   },
 }
 </script>

@@ -1,15 +1,16 @@
 <template>
-  <textarea id="body" v-model="isyo"> </textarea>
-  <button @click="$emit('inputBody', isyo)">確認</button>
+  <textarea id="body" v-model="body"></textarea>
+  <button @click="$emit('inputBody', body)">確認</button>
 </template>
 
 <script>
 export default {
   emits: ["inputBody"],
+  props: {},
   methods: {},
   data() {
     return {
-      isyo: "",
+      body: "",
     }
   },
   components: {},
