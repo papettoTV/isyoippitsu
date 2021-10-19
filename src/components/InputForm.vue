@@ -6,11 +6,13 @@
 <script>
 export default {
   emits: ["inputBody"],
-  props: {},
+  props: {
+    inputedBody: String,
+  },
   methods: {},
   data() {
     return {
-      body: "",
+      body: this.inputedBody,
     }
   },
   components: {},

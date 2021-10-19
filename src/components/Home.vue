@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     <h1>遺書一筆</h1>
-    <input-form v-if="!isConfirm" @inputBody="onInputBody"> </input-form>
+    <input-form v-if="!isConfirm" @inputBody="onInputBody" :inputedBody="body">
+    </input-form>
     <input-confirm-form
       v-if="isConfirm"
       @save="onSave"
@@ -19,6 +20,9 @@ import InputConfirmForm from "./InputConfirmForm.vue"
 export default {
   name: "HelloWorld",
   emits: ["emitmethod"],
+  props: {
+    inputedBody: String,
+  },
   data() {
     return {
       body: "",
