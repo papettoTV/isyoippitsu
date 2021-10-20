@@ -15,6 +15,5 @@ export default {
       body: this.inputedBody,
     }
   },
-  components: {},
 }
 </script>

@@ -18,11 +18,6 @@ import InputForm from "./InputForm.vue"
 import InputConfirmForm from "./InputConfirmForm.vue"
 
 export default {
-  name: "HelloWorld",
-  emits: ["emitmethod"],
-  props: {
-    inputedBody: String,
-  },
   data() {
     return {
       body: "",
