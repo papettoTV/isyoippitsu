@@ -16,7 +16,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+getAnalytics(app)
 
 createApp(App)
   .component("nl2br", Nl2br)
