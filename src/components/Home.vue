@@ -74,26 +74,26 @@ export default {
 function oauth(body) {
   const provider = new TwitterAuthProvider()
   const auth = getAuth()
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      // The signed-in user info.
-      const user = result.user
-      console.log(user, body)
-      // 保存完了UI
-      // showSaveComplete()
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // https://firebase.google.com/docs/reference/js/firebase.User
       update(body, user.displayName)
-    })
-    .catch((error) => {
-      // // Handle Errors here.
-      // const errorCode = error.code
-      // const errorMessage = error.message
-      // // The email of the user's account used.
-      // const email = error.email
-      // // The AuthCredential type that was used.
-      // const credential = TwitterAuthProvider.credentialFromError(error)
-      // // ...
-      console.log(error)
-    })
+    } else {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // The signed-in user info.
+          const user = result.user
+          console.log(user, body)
+          // 保存完了UI
+          // showSaveComplete()
+          update(body, user.displayName)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  })
 }
 
 async function update(body, user_id) {
