@@ -16,7 +16,12 @@
 <script>
 import InputForm from "./InputForm.vue"
 import InputConfirmForm from "./InputConfirmForm.vue"
-import { getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth"
+import {
+  getAuth,
+  signInWithPopup,
+  TwitterAuthProvider,
+  onAuthStateChanged,
+} from "firebase/auth"
 import { initializeApp } from "firebase/app"
 import {
   getFirestore,
