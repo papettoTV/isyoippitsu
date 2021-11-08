@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import { getFirestore } from "firebase/firestore"
-import { doc, setDoc } from "firebase/firestore"
-
-const db = getFirestore()
-=======
 import { initializeApp } from "firebase/app"
 import {
   getFirestore,
@@ -27,7 +21,6 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 
 export const db = getFirestore()
->>>>>>> 776e500
 
 export const update = async function(body, user_id) {
   console.log("update", body, user_id)
@@ -43,8 +36,6 @@ export const update = async function(body, user_id) {
     console.log(e)
   }
 }
-<<<<<<< HEAD
-=======
 
 export const read = async function() {
   const querySnapshot = await getDocs(collection(db, "isyos"))
@@ -52,4 +43,3 @@ export const read = async function() {
     console.log(doc.id, doc.data())
   })
 }
->>>>>>> 776e500
