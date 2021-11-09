@@ -3,6 +3,8 @@ import {
   getFirestore,
   collection,
   getDocs,
+  query,
+  where,
   doc,
   setDoc,
 } from "firebase/firestore"
@@ -37,9 +39,18 @@ export const update = async function(body, user_id) {
   }
 }
 
-export const read = async function() {
-  const querySnapshot = await getDocs(collection(db, "isyos"))
+export const read = async function(userId) {
+  console.log("read")
+  const q = query(collection(db, "isyos"), where("user_id", "==", userId))
+  const querySnapshot = await getDocs(q)
+  console.log(querySnapshot)
+  let isyo
   querySnapshot.forEach((doc) => {
-    console.log(doc.id, doc.data())
+    console.log(doc.id, " => ", doc.data())
+    isyo = {
+      user_id: doc.id,
+      user_name: doc.data().user_name,
+    }
   })
+  return isyo
 }

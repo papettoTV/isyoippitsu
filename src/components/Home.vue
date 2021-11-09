@@ -18,8 +18,7 @@ import InputForm from "./InputForm.vue"
 import InputConfirmForm from "./InputConfirmForm.vue"
 import { getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth"
 
-// import { update, read } from "../libs/db.js"
-import { update } from "../libs/db.js"
+import { update, read } from "../libs/db.js"
 
 export default {
   data() {
@@ -36,9 +35,14 @@ export default {
     },
     async onSave(body) {
       console.log("onSave", body)
-      oauth(body)
-      update(body, "user_id")
-      // read()
+      const user = oauth(body)
+      const user = {
+        displayName: "papettoTV",
+      }
+
+      // await update(body, user.displayName)
+      const userInfo = await read(user.displayName)
+      console.log("userInfo", userInfo)
     },
     onEdit(body) {
       console.log("onEdit", body)
