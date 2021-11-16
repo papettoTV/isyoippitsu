@@ -8,6 +8,7 @@ export const oauth = function(body) {
   if (user) {
     // https://firebase.google.com/docs/reference/js/firebase.User
     update(body, user.displayName)
+    return user
   } else {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -17,6 +18,7 @@ export const oauth = function(body) {
         // 保存完了UI
         // showSaveComplete()
         update(body, user.displayName)
+        return user
       })
       .catch((error) => {
         console.log(error)
