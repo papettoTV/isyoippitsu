@@ -16,9 +16,9 @@
 <script>
 import InputForm from "./InputForm.vue"
 import InputConfirmForm from "./InputConfirmForm.vue"
-import { getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth"
 
 import { update, read } from "../libs/db.js"
+import { oauth } from "../libs/oauth.js"
 
 export default {
   data() {
@@ -36,11 +36,8 @@ export default {
     async onSave(body) {
       console.log("onSave", body)
       const user = oauth(body)
-      const user = {
-        displayName: "papettoTV",
-      }
 
-      // await update(body, user.displayName)
+      await update(body, user.displayName)
       const userInfo = await read(user.displayName)
       console.log("userInfo", userInfo)
     },
@@ -53,29 +50,6 @@ export default {
     InputForm,
     InputConfirmForm,
   },
-}
-
-function oauth(body) {
-  const provider = new TwitterAuthProvider()
-  const auth = getAuth()
-  const user = auth.currentUser
-  if (user) {
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    update(body, user.displayName)
-  } else {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // The signed-in user info.
-        const user = result.user
-        console.log(user, body)
-        // 保存完了UI
-        // showSaveComplete()
-        update(body, user.displayName)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
 }
 </script>
 
