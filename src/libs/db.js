@@ -40,10 +40,10 @@ export const update = async function(body, user_id) {
 }
 
 export const read = async function(userId) {
-  console.log("read")
+  console.log("read", userId)
   const q = query(collection(db, "isyos"), where("user_id", "==", userId))
   const querySnapshot = await getDocs(q)
-  console.log(querySnapshot)
+  console.log("querySnapshot", querySnapshot)
   let isyo
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data())
@@ -52,5 +52,6 @@ export const read = async function(userId) {
       user_name: doc.data().user_name,
     }
   })
+  // ここのリターン、がPromiseオブジェになってる
   return isyo
 }

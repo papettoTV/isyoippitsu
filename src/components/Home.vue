@@ -17,7 +17,7 @@
 import InputForm from "./InputForm.vue"
 import InputConfirmForm from "./InputConfirmForm.vue"
 
-// import { update, read } from "../libs/db.js"
+import { read } from "../libs/db.js"
 import { oauth } from "../libs/oauth.js"
 
 export default {
@@ -35,10 +35,7 @@ export default {
     },
     async onSave(body) {
       console.log("onSave", body)
-      oauth(body, function(user) {
-        console.log("userInfo", user)
-        // const userInfo = await read(user.displayName)
-      })
+      await oauth(body, showSaveComplete)
     },
     onEdit(body) {
       console.log("onEdit", body)
@@ -49,6 +46,12 @@ export default {
     InputForm,
     InputConfirmForm,
   },
+}
+
+async function showSaveComplete(user) {
+  console.log("user", user)
+  const userInfo = await read(user.displayName)
+  console.log("userInfo", userInfo)
 }
 </script>
 

@@ -1,7 +1,7 @@
 import { getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth"
 import { update } from "../libs/db.js"
 
-export const oauth = function(body, showSaveComplete) {
+export const oauth = async function(body, showSaveComplete) {
   const provider = new TwitterAuthProvider()
   const auth = getAuth()
   const user = auth.currentUser
