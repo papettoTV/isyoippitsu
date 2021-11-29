@@ -31,8 +31,8 @@ export const update = async function(body, user_id) {
     await setDoc(doc(db, "isyos", user_id), {
       body: body,
       oauth_type: "twitter",
-      user_id: "user_id",
-      user_name: "user_name",
+      user_id: user_id,
+      user_name: user_id,
     })
   } catch (e) {
     console.log(e)
@@ -41,7 +41,7 @@ export const update = async function(body, user_id) {
 
 export const read = async function(userId) {
   console.log("read", userId)
-  const q = query(collection(db, "isyos"), where("user_id", "==", userId))
+  const q = query(collection(db, "isyos"), where("user_name", "==", userId))
   const querySnapshot = await getDocs(q)
   console.log("querySnapshot", querySnapshot)
   let isyo
