@@ -49,9 +49,11 @@ export default {
 }
 
 async function showSaveComplete(user) {
-  console.log("user", user)
   const userInfo = await read(user.displayName)
   console.log("userInfo", userInfo)
+
+  // show isyo
+  location.href = userInfo.user_id
 }
 </script>
 
