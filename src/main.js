@@ -1,8 +1,30 @@
-import { createApp } from "vue"
+import { createApp, h } from "vue"
 import App from "./App.vue"
 import Nl2br from "vue3-nl2br"
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
+import ShowIsyo from "./components/ShowIsyo.vue"
+
+const routes = {
+  "/": App,
+  "/papettoTV": ShowIsyo,
+}
+
+const SimpleRouter = {
+  data: () => ({
+    currentRoute: window.location.pathname,
+  }),
+
+  computed: {
+    CurrentComponent() {
+      return routes[this.currentRoute] || App
+    },
+  },
+
+  render() {
+    return h(this.CurrentComponent)
+  },
+}
 
 const firebaseConfig = {
   apiKey: "AIzaSyCz9xsxV903h5zq5oCNUXnn3Ld4o4oI2aA",
@@ -18,6 +40,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 
-createApp(App)
+// createApp(App)
+createApp(SimpleRouter)
   .component("nl2br", Nl2br)
   .mount("#app")
