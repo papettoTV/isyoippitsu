@@ -1,26 +1,9 @@
-import { createApp, h } from "vue"
+import { createApp } from "vue"
 import Nl2br from "vue3-nl2br"
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
-// import ShowIsyo from "./components/ShowIsyo.vue"
-import routes from "./routes"
-
-const SimpleRouter = {
-  data: () => ({
-    currentRoute: window.location.pathname,
-  }),
-
-  computed: {
-    CurrentComponent() {
-      const matchingPage = routes[this.currentRoute] || "404"
-      return require(`./components/${matchingPage}.vue`).default
-    },
-  },
-
-  render() {
-    return h(this.CurrentComponent)
-  },
-}
+import App from "./App"
+import router from "./router.js"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCz9xsxV903h5zq5oCNUXnn3Ld4o4oI2aA",
@@ -36,7 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 
-// createApp(App)
-createApp(SimpleRouter)
+createApp(App)
+  .use(router)
   .component("nl2br", Nl2br)
   .mount("#app")
