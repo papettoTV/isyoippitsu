@@ -1,14 +1,9 @@
 import { createApp, h } from "vue"
-import App from "./App.vue"
 import Nl2br from "vue3-nl2br"
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
-import ShowIsyo from "./components/ShowIsyo.vue"
-
-const routes = {
-  "/": App,
-  "/papettoTV": ShowIsyo,
-}
+// import ShowIsyo from "./components/ShowIsyo.vue"
+import routes from "./routes"
 
 const SimpleRouter = {
   data: () => ({
@@ -17,7 +12,8 @@ const SimpleRouter = {
 
   computed: {
     CurrentComponent() {
-      return routes[this.currentRoute] || App
+      const matchingPage = routes[this.currentRoute] || "404"
+      return require(`./components/${matchingPage}.vue`).default
     },
   },
 
