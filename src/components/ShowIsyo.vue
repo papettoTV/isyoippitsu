@@ -1,4 +1,5 @@
 <template>
+  <p>{{ $route.params.userId }}</p>
   <nl2br tag="p" :text="body" class="foo bar" />
   <button @click="$emit('edit', body)">修正</button>
 </template>
