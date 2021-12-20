@@ -5,15 +5,25 @@
 </template>
 
 <script>
-export default {
-  emits: ["edit"],
-  methods: {},
-  components: {},
+import { read } from "../libs/db.js"
+import { defineComponent } from "vue"
+import { useRoute } from "vue-router"
 
-  data() {
+export default defineComponent({
+  async setup() {
+    const route = useRoute()
+    const userInfo = async (userId) => {
+      const readResult = await read(userId)
+      return readResult
+    }
+    console.log("userInfo", userInfo)
+
+    const ui = await userInfo(route.params.userId)
+    console.log("ui", ui)
+
     return {
-      body: "saved body",
+      body: ui,
     }
   },
-}
+})
 </script>
