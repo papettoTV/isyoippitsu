@@ -1,29 +1,14 @@
 <template>
-  <p>{{ $route.params.userId }}</p>
-  <nl2br tag="p" :text="body" class="foo bar" />
-  <button @click="$emit('edit', body)">修正</button>
+  <p>{{ userInfo.user_id }}</p>
 </template>
 
-<script>
+<script async setup>
 import { read } from "../libs/db.js"
-import { defineComponent } from "vue"
 import { useRoute } from "vue-router"
+import { reactive } from "vue"
 
-export default defineComponent({
-  async setup() {
-    const route = useRoute()
-    const userInfo = async (userId) => {
-      const readResult = await read(userId)
-      return readResult
-    }
-    console.log("userInfo", userInfo)
+const route = useRoute()
+let userInfo = reactive({})
 
-    const ui = await userInfo(route.params.userId)
-    console.log("ui", ui)
-
-    return {
-      body: ui,
-    }
-  },
-})
+userInfo = await read(route.params.userId)
 </script>
