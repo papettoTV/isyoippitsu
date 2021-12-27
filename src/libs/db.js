@@ -50,6 +50,7 @@ export const read = async function(userId) {
     isyo = {
       user_id: doc.id,
       user_name: doc.data().user_name,
+      body: doc.data().body,
     }
   })
   // ここのリターン、がPromiseオブジェになってる

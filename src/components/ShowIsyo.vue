@@ -1,19 +1,19 @@
 <template>
   <p>ShowIsyo</p>
-  <p>{{ userInfo }}</p>
+  <p>{{ body }}</p>
 </template>
 
 <script setup>
 import { read } from "../libs/db.js"
 import { useRoute } from "vue-router"
-import { reactive } from "vue"
+import { ref } from "vue"
 
-let userInfo = reactive({})
+let body = ref("default body")
 const route = useRoute()
 
 const done = async function() {
   const readResult = await read(route.params.userId)
-  userInfo.user_id = readResult.user_id
+  body.value = readResult.body
 }
 done()
 </script>
