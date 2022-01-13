@@ -4,13 +4,11 @@
   <button @click="$emit('save', body)">保存</button>
 </template>
 
-<script>
-export default {
-  emits: ["edit", "save"],
-  props: {
-    body: String,
-  },
-  methods: {},
-  components: {},
-}
+<script setup>
+import { defineProps, defineEmits } from "vue"
+
+defineEmits(["edit", "save"])
+defineProps({
+  body: String,
+})
 </script>

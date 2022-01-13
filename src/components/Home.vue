@@ -13,47 +13,43 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, defineExpose } from "vue"
+
 import InputForm from "./InputForm.vue"
 import InputConfirmForm from "./InputConfirmForm.vue"
 
 import { read } from "../libs/db.js"
 import { oauth } from "../libs/oauth.js"
 
-export default {
-  data() {
-    return {
-      body: "",
-      isConfirm: false,
-    }
-  },
-  methods: {
-    onInputBody(e) {
-      console.log("onInputBody", e)
-      this.isConfirm = true
-      this.body = e
-    },
-    async onSave(body) {
-      console.log("onSave", body)
-      await oauth(body, showSaveComplete)
-    },
-    onEdit(body) {
-      console.log("onEdit", body)
-      this.isConfirm = false
-    },
-  },
-  components: {
-    InputForm,
-    InputConfirmForm,
-  },
+let isConfirm = ref(false)
+let body = ref("")
+
+const onInputBody = function(e) {
+  console.log("onInputBody", e)
+  isConfirm.value = true
+  body.value = e
 }
+const onSave = async function(editbody) {
+  console.log("onSave", editbody)
+  await oauth(editbody, showSaveComplete)
+}
+const onEdit = function(editbody) {
+  console.log("onEdit", editbody)
+  isConfirm.value = false
+}
+
+defineExpose({
+  InputForm,
+  InputConfirmForm,
+})
 
 async function showSaveComplete(user) {
   const userInfo = await read(user.displayName)
   console.log("userInfo", userInfo)
 
   // show isyo
-  location.href = userInfo.user_id
+  location.href = "/" + userInfo.user_id
 }
 </script>
 

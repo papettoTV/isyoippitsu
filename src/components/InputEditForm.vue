@@ -3,17 +3,14 @@
   <button @click="$emit('edit', body)">編集</button>
 </template>
 
-<script>
-export default {
-  emits: ["inputBody"],
-  props: {
-    inputedBody: String,
-  },
-  methods: {},
-  data() {
-    return {
-      body: this.inputedBody,
-    }
-  },
-}
+<script setup>
+import { defineProps, defineEmits } from "vue"
+
+let body = ref("")
+
+defineEmits(["inputBody"])
+defineProps({
+  inputedBody: String,
+})
+body.value = inputedBody
 </script>
