@@ -1,7 +1,6 @@
 <template>
   <textarea id="body" v-model="body"></textarea>
   <button @click="$emit('inputBody', body)">確認</button>
-  <button @click="$emit('testButton', 'test')">test</button>
 </template>
 
 <script setup>
