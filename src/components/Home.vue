@@ -1,7 +1,12 @@
 <template>
   <div class="hello">
     <h1>遺書一筆</h1>
-    <input-form v-if="!isConfirm" @inputBody="onInputBody" :inputedBody="body">
+    <input-form
+      v-if="!isConfirm"
+      @inputBody="onInputBody"
+      @testButton="testButton"
+      :inputedBody="body"
+    >
     </input-form>
     <input-confirm-form
       v-if="isConfirm"
@@ -29,6 +34,9 @@ const onInputBody = function(e) {
   console.log("onInputBody", e)
   isConfirm.value = true
   body.value = e
+}
+const testButton = function(e) {
+  console.log("testButton", e)
 }
 const onSave = async function(editbody) {
   console.log("onSave", editbody)
