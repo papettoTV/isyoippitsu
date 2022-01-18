@@ -6,12 +6,11 @@
 <script setup>
 import { toRefs, defineProps, defineEmits } from "vue"
 
-// let body = ref("")
 let body = ""
 const props = defineProps({
   inputedBody: String,
 })
-defineEmits(["inputBody", "testButton"])
+defineEmits(["inputBody"])
 
 const { inputedBody } = toRefs(props)
 body = inputedBody.value
