@@ -4,14 +4,15 @@
 </template>
 
 <script setup>
-import { ref, toRefs, defineProps, defineEmits } from "vue"
+import { toRefs, defineProps, defineEmits } from "vue"
 
-let body = ref("")
+// let body = ref("")
+let body = ""
 const props = defineProps({
   inputedBody: String,
 })
 defineEmits(["inputBody", "testButton"])
 
 const { inputedBody } = toRefs(props)
-body.value = inputedBody.value
+body = inputedBody.value
 </script>
