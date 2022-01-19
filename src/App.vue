@@ -1,5 +1,10 @@
 <template>
   <router-view></router-view>
+  <v-app>
+    <v-main>
+      <HelloWorld />
+    </v-main>
+  </v-app>
 </template>
 
 <script>

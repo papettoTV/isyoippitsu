@@ -4,6 +4,10 @@ import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
 import App from "./App"
 import router from "./router.js"
+import vuetify from "./plugins/vuetify"
+import { loadFonts } from "./plugins/webfontloader"
+
+loadFonts()
 
 const firebaseConfig = {
   apiKey: "AIzaSyCz9xsxV903h5zq5oCNUXnn3Ld4o4oI2aA",
@@ -21,5 +25,6 @@ getAnalytics(app)
 
 createApp(App)
   .use(router)
+  .use(vuetify)
   .component("nl2br", Nl2br)
   .mount("#app")
