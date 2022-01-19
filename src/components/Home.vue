@@ -15,12 +15,9 @@
 
 <script setup>
 import { ref, defineExpose } from "vue"
-
 import InputForm from "./InputForm.vue"
 import InputConfirmForm from "./InputConfirmForm.vue"
-
-import { read } from "../libs/db.js"
-import { oauth } from "../libs/oauth.js"
+import { onSave } from "../libs/save.js"
 
 let isConfirm = ref(false)
 let body = ref("")
@@ -30,10 +27,7 @@ const onInputBody = function(e) {
   isConfirm.value = true
   body.value = e
 }
-const onSave = async function(editbody) {
-  console.log("onSave", editbody)
-  await oauth(editbody, showSaveComplete)
-}
+
 const onEdit = function(editbody) {
   console.log("onEdit", editbody)
   isConfirm.value = false
@@ -43,14 +37,6 @@ defineExpose({
   InputForm,
   InputConfirmForm,
 })
-
-async function showSaveComplete(user) {
-  const userInfo = await read(user.displayName)
-  console.log("userInfo", userInfo)
-
-  // show isyo
-  location.href = "/" + userInfo.user_id
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
