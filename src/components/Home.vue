@@ -1,6 +1,11 @@
 <template>
+  <v-app-bar app color="white" height="100">
+    <v-toolbar-title class="font-weight-black headline">
+      遺書一筆
+    </v-toolbar-title>
+  </v-app-bar>
+
   <div class="hello">
-    <h1>遺書一筆</h1>
     <input-form v-if="!isConfirm" @inputBody="onInputBody" :inputedBody="body">
     </input-form>
     <input-confirm-form
