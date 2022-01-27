@@ -1,9 +1,11 @@
 <template>
-  <p>ShowIsyo</p>
   <nl2br tag="p" :text="body" />
+  <!--
   <router-link :to="{ name: 'edit', params: { user_id: userId } }">
     編集
   </router-link>
+  -->
+  <button @click="$emit('edit', body)">編集</button>
 </template>
 
 <script setup>

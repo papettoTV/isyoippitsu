@@ -4,17 +4,16 @@
 </template>
 
 <script setup>
-import { read } from "../libs/db.js"
-import { useRoute } from "vue-router"
-import { ref } from "vue"
+import { defineProps, defineEmits, toRefs } from "vue"
 import { onSave } from "../libs/save.js"
 
-let body = ref("")
-const route = useRoute()
+let body = ""
 
-const done = async function() {
-  const readResult = await read(route.params.userId)
-  body.value = readResult.body
-}
-done()
+defineEmits(["save"])
+const props = defineProps({
+  inputedBody: String,
+})
+
+const { inputedBody } = toRefs(props)
+body = inputedBody.value
 </script>
