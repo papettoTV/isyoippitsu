@@ -10,12 +10,14 @@
 
 <script setup>
 import { read } from "../libs/db.js"
-import { useRoute } from "vue-router"
+import { useRoute, defineEmits } from "vue-router"
 import { ref } from "vue"
 
 let body = ref("default body")
 const route = useRoute()
 const userId = route.params.userId
+
+defineEmits(["edit"])
 
 const done = async function() {
   const readResult = await read(userId)
