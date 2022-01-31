@@ -1,5 +1,6 @@
 <template>
   <textarea id="body" v-model="body"></textarea>
+  <button @click="$emit('cancel')">キャンセル</button>
   <button @click="onSave(body)">編集完了する</button>
 </template>
 
@@ -9,7 +10,7 @@ import { onSave } from "../libs/save.js"
 
 let body = ""
 
-defineEmits(["save"])
+defineEmits(["save", "cancel"])
 const props = defineProps({
   inputedBody: String,
 })

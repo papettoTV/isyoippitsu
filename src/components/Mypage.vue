@@ -1,7 +1,7 @@
 <template>
   <p>あなたの遺書</p>
   <show-isyo v-if="!isEdit" @edit="onEdit" :body="body"> </show-isyo>
-  <edit-isyo v-if="isEdit" :inputedBody="body"> </edit-isyo>
+  <edit-isyo v-if="isEdit" :inputedBody="body" @cancel="onCancel"> </edit-isyo>
 </template>
 
 <script setup>
@@ -25,6 +25,11 @@ const onEdit = function(editbody) {
   console.log("onEdit", editbody)
   isEdit.value = true
   body.value = editbody
+}
+
+const onCancel = function() {
+  console.log("onCancel")
+  isEdit.value = false
 }
 
 const done = async function() {
