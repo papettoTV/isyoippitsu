@@ -21,18 +21,18 @@ defineExpose({
   EditIsyo,
 })
 
-const onEdit = function(editbody) {
+const onEdit = function (editbody) {
   console.log("onEdit", editbody)
   isEdit.value = true
   body.value = editbody
 }
 
-const onCancel = function() {
+const onCancel = function () {
   console.log("onCancel")
   isEdit.value = false
 }
 
-const done = async function() {
+const done = async function () {
   const readResult = await read(userId)
   body.value = readResult.body
 }
