@@ -1,5 +1,4 @@
 import Home from "./components/Home.vue"
-// import ShowIsyo from "./components/ShowIsyo.vue"
 import Mypage from "./components/Mypage.vue"
 import EditIsyo from "./components/EditIsyo.vue"
 import { createRouter, createWebHistory } from "vue-router"

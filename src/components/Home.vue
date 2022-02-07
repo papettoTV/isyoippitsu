@@ -1,9 +1,5 @@
 <template>
-  <v-app-bar app color="white" height="100">
-    <v-toolbar-title class="font-weight-black headline">
-      遺書一筆
-    </v-toolbar-title>
-  </v-app-bar>
+  遺書一筆
 
   <div class="hello">
     <input-form v-if="!isConfirm" @inputBody="onInputBody" :inputedBody="body">
@@ -27,13 +23,13 @@ import { onSave } from "../libs/save.js"
 let isConfirm = ref(false)
 let body = ref("")
 
-const onInputBody = function(e) {
+const onInputBody = function (e) {
   console.log("onInputBody", e)
   isConfirm.value = true
   body.value = e
 }
 
-const onEdit = function(editbody) {
+const onEdit = function (editbody) {
   console.log("onEdit", editbody)
   isConfirm.value = false
 }

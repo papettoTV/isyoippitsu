@@ -6,6 +6,8 @@ import App from "./App"
 import router from "./router.js"
 import vuetify from "./plugins/vuetify"
 import { loadFonts } from "./plugins/webfontloader"
+import { Quasar } from 'quasar'
+import quasarUserOptions from './quasar-user-options'
 
 loadFonts()
 
@@ -23,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 
-createApp(App)
+createApp(App).use(Quasar, quasarUserOptions)
   .use(router)
   .use(vuetify)
   .component("nl2br", Nl2br)
