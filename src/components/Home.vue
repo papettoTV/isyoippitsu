@@ -1,6 +1,4 @@
 <template>
-  遺書一筆
-
   <div class="hello">
     <input-form v-if="!isConfirm" @inputBody="onInputBody" :inputedBody="body">
     </input-form>
