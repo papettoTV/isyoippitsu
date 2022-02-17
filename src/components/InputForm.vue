@@ -1,16 +1,20 @@
 <template>
-  <div class="row">
-    <div class="col">
-      <h3>遺書を書いてみませんか？</h3>
-      <p>
+  <div class="row q-ma-lg">
+    <div class="col q-pa-lg bg-secondary">
+      <h2>遺書を書いてみませんか？</h2>
+      <p class="q-mt-lg">
         遺書を書くとしたら誰に書きますか？何を伝えますか？<br />
-        あなたが最後に、誰に何を伝えるか、その思いを一度形にしてみませんか？
+        あなたが最後に伝えたいこと、その思いを一度形にしてみませんか？
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row q-ma-lg">
     <div class="col">
       <q-input id="body" v-model="body" filled type="textarea" />
+    </div>
+  </div>
+  <div class="row justify-end">
+    <div class="col-4">
       <q-btn
         color="white"
         text-color="black"

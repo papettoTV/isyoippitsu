@@ -1,18 +1,23 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header reveal class="bg-primary text-white">
-      <q-toolbar>
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          遺書一筆
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-header>
-
+    <Header></Header>
     <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
+<script setup>
+import { defineExpose } from "vue"
+import Header from "./components/Header.vue"
+
+defineExpose({
+  Header,
+})
+</script>
+<style>
+.main-title {
+  font-size: 1.3em;
+  line-height: 1.3em;
+  text-align: center;
+}
+</style>
