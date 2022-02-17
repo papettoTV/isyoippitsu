@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isEdit && !isConfirm" class="row q-ma-lg">
+  <div v-if="!isEdit" class="row q-ma-lg">
     <div class="col q-pa-xs">
       <h2>あなたの遺書</h2>
     </div>

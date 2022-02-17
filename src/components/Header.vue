@@ -17,5 +17,6 @@ import { logon } from "../libs/oauth.js"
 
 let user = ref("")
 const userInfo = logon()
-user = userInfo.name
+console.log(userInfo)
+user.value = userInfo.name
 </script>
