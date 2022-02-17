@@ -1,6 +1,20 @@
 <template>
-  <nl2br tag="p" :text="body" />
-  <button @click="$emit('edit', body)">編集</button>
+  <div class="row q-ma-lg">
+    <div class="col">
+      <nl2br tag="p" :text="body" />
+    </div>
+  </div>
+  <div class="row justify-end">
+    <div class="col-4">
+      <q-btn
+        color="white"
+        text-color="black"
+        label="編集する"
+        @click="$emit('edit', body)"
+      >
+      </q-btn>
+    </div>
+  </div>
 </template>
 
 <script setup>

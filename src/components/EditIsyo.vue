@@ -1,7 +1,27 @@
 <template>
-  <textarea id="body" v-model="body"></textarea>
-  <button @click="$emit('cancel')">キャンセル</button>
-  <button @click="onSave(body)">編集完了する</button>
+  <div class="row q-ma-lg">
+    <div class="col">
+      <q-input id="body" v-model="body" filled type="textarea" />
+    </div>
+  </div>
+  <div class="row justify-end">
+    <div class="col-4">
+      <q-btn
+        color="white"
+        text-color="black"
+        label="キャンセル"
+        @click="$emit('cancel')"
+      />
+    </div>
+    <div class="col-4">
+      <q-btn
+        color="white"
+        text-color="black"
+        label="保存する"
+        @click="onSave(body)"
+      />
+    </div>
+  </div>
 </template>
 
 <script setup>

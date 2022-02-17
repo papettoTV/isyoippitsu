@@ -1,5 +1,9 @@
 <template>
-  <p>あなたの遺書</p>
+  <div v-if="!isEdit && !isConfirm" class="row q-ma-lg">
+    <div class="col q-pa-xs">
+      <h2>あなたの遺書</h2>
+    </div>
+  </div>
   <show-isyo v-if="!isEdit" @edit="onEdit" :body="body"> </show-isyo>
   <edit-isyo v-if="isEdit" :inputedBody="body" @cancel="onCancel"> </edit-isyo>
 </template>

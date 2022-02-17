@@ -1,14 +1,5 @@
 <template>
   <div class="row q-ma-lg">
-    <div class="col q-pa-lg bg-secondary">
-      <h2>遺書を書いてみませんか？</h2>
-      <p class="q-mt-lg">
-        遺書を書くとしたら誰に書きますか？何を伝えますか？<br />
-        あなたが最後に伝えたいこと、その思いを一度形にしてみませんか？
-      </p>
-    </div>
-  </div>
-  <div class="row q-ma-lg">
     <div class="col">
       <q-input id="body" v-model="body" filled type="textarea" />
     </div>
