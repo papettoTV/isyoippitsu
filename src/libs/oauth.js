@@ -1,7 +1,7 @@
 import { getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth"
 import { update } from "../libs/db.js"
 
-export const oauth = async function(body, showSaveComplete) {
+export const oauth = async function (body, showSaveComplete) {
   const domain = document.domain
   if (domain == "localhost") {
     console.log(body)
@@ -31,4 +31,17 @@ export const oauth = async function(body, showSaveComplete) {
         })
     }
   }
+}
+
+export const logon = function () {
+  const userInfo = {
+    name: "ゲスト",
+  }
+
+  const auth = getAuth()
+  const user = auth.currentUser
+  if (user) {
+    userInfo.name = user.displayName
+  }
+  return userInfo
 }
