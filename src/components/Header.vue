@@ -12,11 +12,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, onBeforeMount } from "vue"
 import { logon } from "../libs/oauth.js"
 
-let user = ref("")
-const userInfo = logon()
-console.log(userInfo)
-user.value = userInfo.name
+let user = ref("ゲスト")
+onBeforeMount(async () => {
+  const userInfo = await logon()
+  user.value = userInfo.name
+})
 </script>

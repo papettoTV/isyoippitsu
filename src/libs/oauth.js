@@ -1,4 +1,9 @@
-import { getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth"
+import {
+  getAuth,
+  signInWithPopup,
+  TwitterAuthProvider,
+  onAuthStateChanged,
+} from "firebase/auth"
 import { update } from "../libs/db.js"
 
 export const oauth = async function (body, showSaveComplete) {
@@ -35,13 +40,16 @@ export const oauth = async function (body, showSaveComplete) {
 
 export const logon = function () {
   const userInfo = {
-    name: "ゲスト",
+    name: "",
   }
 
   const auth = getAuth()
-  const user = auth.currentUser
-  if (user) {
-    userInfo.name = user.displayName
-  }
-  return userInfo
+  return new Promise((resolve) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userInfo.name = user.displayName
+      }
+      resolve(userInfo)
+    })
+  })
 }

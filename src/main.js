@@ -1,31 +1,22 @@
 import { createApp } from "vue"
 import Nl2br from "vue3-nl2br"
-import { initializeApp } from "firebase/app"
+import { firebaseInit } from "./libs/firebase.js"
 import { getAnalytics } from "firebase/analytics"
+
 import App from "./App"
 import router from "./router.js"
 import vuetify from "./plugins/vuetify"
 import { loadFonts } from "./plugins/webfontloader"
-import { Quasar } from 'quasar'
-import quasarUserOptions from './quasar-user-options'
+import { Quasar } from "quasar"
+import quasarUserOptions from "./quasar-user-options"
 
 loadFonts()
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCz9xsxV903h5zq5oCNUXnn3Ld4o4oI2aA",
-  authDomain: "isyo-894d2.firebaseapp.com",
-  projectId: "isyo-894d2",
-  storageBucket: "isyo-894d2.appspot.com",
-  messagingSenderId: "274415468618",
-  appId: "1:274415468618:web:5634c12171e40bbb74e6b3",
-  measurementId: "G-8XE4XDBH4P",
-}
+const firebaseApp = firebaseInit()
+getAnalytics(firebaseApp)
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-getAnalytics(app)
-
-createApp(App).use(Quasar, quasarUserOptions)
+createApp(App)
+  .use(Quasar, quasarUserOptions)
   .use(router)
   .use(vuetify)
   .component("nl2br", Nl2br)
