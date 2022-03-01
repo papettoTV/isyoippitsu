@@ -18,7 +18,7 @@ import { read } from "../libs/db.js"
 let isEdit = ref(false)
 let body = ref("")
 const route = useRoute()
-const userId = route.params.userId
+const isyoId = route.params.isyoId
 
 defineExpose({
   ShowIsyo,
@@ -37,7 +37,7 @@ const onCancel = function () {
 }
 
 const done = async function () {
-  const readResult = await read(userId)
+  const readResult = await read(isyoId)
   body.value = readResult.body
 }
 done()
