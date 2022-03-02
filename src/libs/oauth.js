@@ -10,7 +10,10 @@ export const oauth = async function (body, showSaveComplete) {
   const domain = document.domain
   if (domain == "localhost") {
     console.log(body)
-    await showSaveComplete({ displayName: "papettoTV" })
+    await showSaveComplete({
+      isyo_id:
+        "3acacdeb050b4749d88fb6798b1738cddd58e86124fc47662f6f40822aaabd7b",
+    })
   } else {
     const provider = new TwitterAuthProvider()
     const auth = getAuth()
@@ -18,7 +21,7 @@ export const oauth = async function (body, showSaveComplete) {
     if (user) {
       // https://firebase.google.com/docs/reference/js/firebase.User
       console.log("auth.currentUser", user, body)
-      update(body, user.displayName)
+      update(body, user.isyo_id)
       showSaveComplete(user)
     } else {
       signInWithPopup(auth, provider)
@@ -28,7 +31,7 @@ export const oauth = async function (body, showSaveComplete) {
           // console.log(user, body)
           console.log("singIn User", user, body)
           // 保存完了UI
-          update(body, user.displayName)
+          update(body, user.isyo_id)
           showSaveComplete(user)
         })
         .catch((error) => {

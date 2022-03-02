@@ -15,6 +15,7 @@ export const update = async function (body, user_id) {
 
   try {
     await setDoc(doc(db, db_name, documentId), {
+      isyo_id: documentId,
       body: body,
       oauth_type,
       user_id,
@@ -46,6 +47,7 @@ export const read = async function (isyoId) {
   const isyoModel = document.data()
 
   isyo = {
+    isyo_id: isyoModel.isyo_id,
     user_id: isyoModel.user_id,
     user_name: isyoModel.user_name,
     body: isyoModel.body,

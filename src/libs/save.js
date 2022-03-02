@@ -7,9 +7,9 @@ export async function onSave(val) {
 }
 
 async function showSaveComplete(user) {
-  const userInfo = await read(user.displayName)
+  const userInfo = await read(user.isyo_id)
   console.log("userInfo", userInfo)
 
   // redirect show isyo
-  location.href = "/" + userInfo.user_id
+  location.href = "/" + userInfo.isyo_id
 }
