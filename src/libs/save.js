@@ -11,5 +11,5 @@ async function showSaveComplete(user) {
   console.log("userInfo", userInfo)
 
   // redirect show isyo
-  location.href = "/" + userInfo.isyo_id
+  location.href = "/isyo/" + userInfo.isyo_id
 }
