@@ -22,7 +22,7 @@ export const oauth = async function (body, showSaveComplete) {
       // https://firebase.google.com/docs/reference/js/firebase.User
       console.log("auth.currentUser", user, body)
       update(body, user.displayName)
-      showSaveComplete(user)
+      showSaveComplete(user.displayName)
     } else {
       signInWithPopup(auth, provider)
         .then((result) => {
@@ -32,7 +32,7 @@ export const oauth = async function (body, showSaveComplete) {
           console.log("singIn User", user, body)
           // 保存完了UI
           update(body, user.displayName)
-          showSaveComplete(user)
+          showSaveComplete(user.displayName)
         })
         .catch((error) => {
           console.log(error)

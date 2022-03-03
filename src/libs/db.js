@@ -25,9 +25,9 @@ export const update = async function (body, user_name) {
   }
 }
 
-export const read = async function (user) {
-  console.log("read", user)
-  const documentId = await hash(user.displayName, oauth_type)
+export const read = async function (user_id) {
+  console.log("read", user_idr)
+  const documentId = await hash(user_id, oauth_type)
   // const q = query(collection(db, "isyos"), where("user_name", "==", userId))
   // const querySnapshot = await getDocs(q)
   // console.log("querySnapshot", querySnapshot)

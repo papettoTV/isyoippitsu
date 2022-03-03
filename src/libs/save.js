@@ -6,8 +6,8 @@ export async function onSave(val) {
   await oauth(val, showSaveComplete)
 }
 
-async function showSaveComplete(user) {
-  const userInfo = await read(user)
+async function showSaveComplete(user_id) {
+  const userInfo = await read(user_id)
   console.log("userInfo", userInfo)
 
   // redirect show isyo
