@@ -7,7 +7,7 @@ export async function onSave(val) {
 }
 
 async function showSaveComplete(user) {
-  const userInfo = await read(user.isyo_id)
+  const userInfo = await read(user)
   console.log("userInfo", userInfo)
 
   // redirect show isyo
