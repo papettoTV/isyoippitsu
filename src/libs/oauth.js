@@ -3,6 +3,7 @@ import {
   signInWithPopup,
   TwitterAuthProvider,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth"
 import { update } from "../libs/db.js"
 
@@ -55,4 +56,11 @@ export const logon = function () {
       resolve(userInfo)
     })
   })
+}
+
+export const logout = function () {
+  console.log("logout")
+  const auth = getAuth()
+  signOut(auth)
+  console.log("signOut")
 }

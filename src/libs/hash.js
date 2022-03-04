@@ -9,6 +9,6 @@ const seed = function (id, oath_type) {
   return id + oath_type
 }
 
-export const hash = async function (id, oath_type) {
-  return await sha256(seed(id, oath_type))
+export const hash = async function (id, oauth_type) {
+  return await sha256(seed(id, oauth_type))
 }

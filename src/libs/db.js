@@ -24,21 +24,8 @@ export const update = async function (body, user_name) {
   }
 }
 
-export const read = async function (user_id) {
-  console.log("read", user_id)
-  const documentId = await hash(user_id, oauth_type)
-  // const q = query(collection(db, "isyos"), where("user_name", "==", userId))
-  // const querySnapshot = await getDocs(q)
-  // console.log("querySnapshot", querySnapshot)
+export const read = async function (documentId) {
   let isyo
-  // querySnapshot.forEach((doc) => {
-  //   console.log(doc.id, " => ", doc.data())
-  //   isyo = {
-  //     user_id: doc.id,
-  //     user_name: doc.data().user_name,
-  //     body: doc.data().body,
-  //   }
-  // })
 
   const docRef = doc(db, db_name, documentId)
   const document = await getDoc(docRef)
@@ -53,4 +40,10 @@ export const read = async function (user_id) {
   }
   // ここのリターン、がPromiseオブジェになってる
   return isyo
+}
+
+export const readFromUserId = async function (user_id) {
+  console.log("readFromUserId", user_id)
+  const documentId = await hash(user_id, oauth_type)
+  return read(documentId)
 }

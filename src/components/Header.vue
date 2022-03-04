@@ -5,7 +5,16 @@
       <q-toolbar-title>
         <h1 class="main-title">遺書一筆</h1>
       </q-toolbar-title>
-      <q-btn flat round dense icon="perm_identity" />
+      <q-btn flat round dense icon="perm_identity">
+        <q-menu>
+          <q-list>
+            <q-item clickable v-close-popup>
+              <q-item-section @click="logout">log out</q-item-section>
+            </q-item>
+          </q-list>
+        </q-menu>
+      </q-btn>
+
       {{ user }}
     </q-toolbar>
   </q-header>
@@ -13,11 +22,13 @@
 
 <script setup>
 import { ref, onBeforeMount } from "vue"
-import { logon } from "../libs/oauth.js"
+import { logon, logout } from "../libs/oauth.js"
 
 let user = ref("ゲスト")
 onBeforeMount(async () => {
   const userInfo = await logon()
-  user.value = userInfo.name
+  if (userInfo.name) {
+    user.value = userInfo.name
+  }
 })
 </script>
