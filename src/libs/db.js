@@ -46,7 +46,7 @@ export const read = async function (user_id) {
   const isyoModel = document.data()
 
   isyo = {
-    isyo_id: isyoModel.isyo_id,
+    isyo_id: documentId,
     user_id: isyoModel.user_id,
     user_name: isyoModel.user_name,
     body: isyoModel.body,
