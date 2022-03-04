@@ -15,7 +15,6 @@ export const update = async function (body, user_name) {
 
   try {
     await setDoc(doc(db, db_name, documentId), {
-      isyo_id: documentId,
       body: body,
       oauth_type,
       user_name,
