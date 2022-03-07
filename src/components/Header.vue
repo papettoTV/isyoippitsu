@@ -9,7 +9,7 @@
         <q-menu>
           <q-list>
             <q-item clickable v-close-popup>
-              <q-item-section @click="callLogout">log out</q-item-section>
+              <q-item-section @click="logout">log out</q-item-section>
             </q-item>
           </q-list>
         </q-menu>
@@ -31,9 +31,4 @@ onBeforeMount(async () => {
     user.value = userInfo.name
   }
 })
-
-const callLogout = async function () {
-  await logout()
-  user.value = "ゲスト"
-}
 </script>

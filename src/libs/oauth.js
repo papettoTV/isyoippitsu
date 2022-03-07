@@ -59,18 +59,12 @@ export const logon = function () {
 
 export const logout = function () {
   console.log("logout")
-  const userInfo = {
-    name: "",
-  }
   const auth = getAuth()
-  return new Promise((resolve) => {
-    signOut(auth)
-      .then(() => {
-        userInfo.name = "ゲスト"
-        resolve(userInfo)
-      })
-      .catch((error) => {
-        console.log("logout error", error)
-      })
-  })
+  signOut(auth)
+    .then(() => {
+      location.href = "/"
+    })
+    .catch((error) => {
+      console.log("logout error", error)
+    })
 }
