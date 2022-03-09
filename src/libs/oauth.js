@@ -5,7 +5,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth"
-import { update } from "../libs/db.js"
+import { update, readFromUserId } from "../libs/db.js"
 
 const testUserDisplayName = "papettoTV"
 
@@ -39,6 +39,23 @@ export const oauth = async function (body, showSaveComplete) {
         })
     }
   }
+}
+
+export const login = function () {
+  const provider = new TwitterAuthProvider()
+  const auth = getAuth()
+  signInWithPopup(auth, provider)
+    .then(async (result) => {
+      // The signed-in user info.
+      const user = result.user
+      // console.log(user, body)
+      const userInfo = await readFromUserId(user.displayName)
+      // redirect show isyo
+      location.href = "/isyo/" + userInfo.isyo_id
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 }
 
 export const logon = function () {

@@ -8,8 +8,11 @@
       <q-btn flat round dense icon="perm_identity">
         <q-menu>
           <q-list>
-            <q-item clickable v-close-popup>
-              <q-item-section @click="logout">log out</q-item-section>
+            <q-item clickable v-close-popup v-if="user == 'ゲスト'">
+              <q-item-section @click="login">Sign In</q-item-section>
+            </q-item>
+            <q-item clickable v-close-popup v-if="user != 'ゲスト'">
+              <q-item-section @click="logout">Sign Out</q-item-section>
             </q-item>
           </q-list>
         </q-menu>
@@ -22,9 +25,10 @@
 
 <script setup>
 import { ref, onBeforeMount } from "vue"
-import { logon, logout } from "../libs/oauth.js"
+import { login, logon, logout } from "../libs/oauth.js"
 
 let user = ref("ゲスト")
+
 onBeforeMount(async () => {
   const userInfo = await logon()
   if (userInfo.name) {
