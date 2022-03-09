@@ -5,20 +5,25 @@
       <q-toolbar-title>
         <h1 class="main-title">遺書一筆</h1>
       </q-toolbar-title>
-      <q-btn flat round dense icon="perm_identity">
-        <q-menu>
-          <q-list>
-            <q-item clickable v-close-popup v-if="user == 'ゲスト'">
-              <q-item-section @click="login">Sign In</q-item-section>
-            </q-item>
-            <q-item clickable v-close-popup v-if="user != 'ゲスト'">
-              <q-item-section @click="logout">Sign Out</q-item-section>
-            </q-item>
-          </q-list>
-        </q-menu>
-      </q-btn>
-
-      {{ user }}
+      <div v-if="isLogon">
+        <q-btn flat round dense icon="perm_identity">
+          <q-menu>
+            <q-list>
+              <q-item clickable v-close-popup>
+                <q-item-section @click="logout">サインアウト</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
+        {{ user }}
+      </div>
+      <q-btn
+        label="サインイン"
+        color="white"
+        text-color="black"
+        @click="login"
+        v-if="!isLogon"
+      />
     </q-toolbar>
   </q-header>
 </template>
@@ -28,11 +33,13 @@ import { ref, onBeforeMount } from "vue"
 import { login, logon, logout } from "../libs/oauth.js"
 
 let user = ref("ゲスト")
+let isLogon = ref(false)
 
 onBeforeMount(async () => {
   const userInfo = await logon()
   if (userInfo.name) {
     user.value = userInfo.name
+    isLogon.value = true
   }
 })
 </script>
