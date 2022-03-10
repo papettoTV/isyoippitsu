@@ -1,10 +1,10 @@
 <template>
   <div v-if="!isEdit && !isConfirm" class="row q-ma-lg">
-    <div class="col q-pa-lg bg-blue-grey-1">
+    <div class="col q-pa-lg bg-blue-1">
       <h2>遺書を書いてみませんか？</h2>
       <p class="q-mt-lg">
         遺書を書くとしたら誰に書きますか？何を伝えますか？<br />
-        あなたが最後に伝えたいこと、その思いを一度形にしてみませんか？
+        あなたが伝えたいこと、言っておきたいこと、その思いを一度形にしてみませんか？
       </p>
     </div>
   </div>
@@ -48,4 +48,8 @@ defineExpose({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style lang="scss">
+.main-header {
+  background-color: #bdbdbd !important;
+}
+</style>

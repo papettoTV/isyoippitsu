@@ -17,13 +17,7 @@
         </q-btn>
         {{ user }}
       </div>
-      <q-btn
-        label="サインイン"
-        color="white"
-        text-color="black"
-        @click="login"
-        v-if="!isLogon"
-      />
+      <a href="#" v-if="!isLogon" @click="login">サインイン</a>
     </q-toolbar>
   </q-header>
 </template>

@@ -9,7 +9,7 @@
       <q-btn
         color="white"
         text-color="black"
-        label="確認"
+        label="内容の確認"
         @click="$emit('inputBody', body)"
       />
     </div>
