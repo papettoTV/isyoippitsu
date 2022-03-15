@@ -14,10 +14,3 @@ defineExpose({
   Header,
 })
 </script>
-<style>
-.main-title {
-  font-size: 1.3em;
-  line-height: 1.3em;
-  text-align: center;
-}
-</style>

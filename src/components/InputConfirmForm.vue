@@ -15,12 +15,7 @@
       </q-btn>
     </div>
     <div class="col-4">
-      <q-btn
-        color="white"
-        text-color="black"
-        label="保存する"
-        @click="$emit('save', body)"
-      >
+      <q-btn color="primary" label="保存する" @click="$emit('save', body)">
       </q-btn>
     </div>
   </div>

@@ -6,12 +6,7 @@
   </div>
   <div class="row justify-end">
     <div class="col-4">
-      <q-btn
-        color="white"
-        text-color="black"
-        label="編集する"
-        @click="$emit('edit', body)"
-      >
+      <q-btn color="primary" label="編集する" @click="$emit('edit', body)">
       </q-btn>
     </div>
   </div>

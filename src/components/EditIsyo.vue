@@ -14,12 +14,7 @@
       />
     </div>
     <div class="col-4">
-      <q-btn
-        color="white"
-        text-color="black"
-        label="保存する"
-        @click="onSave(body)"
-      />
+      <q-btn color="primary" label="保存する" @click="onSave(body)" />
     </div>
   </div>
 </template>

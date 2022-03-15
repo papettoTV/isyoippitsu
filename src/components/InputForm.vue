@@ -7,8 +7,7 @@
   <div class="row justify-end">
     <div class="col-4">
       <q-btn
-        color="white"
-        text-color="black"
+        color="primary"
         label="内容の確認"
         @click="$emit('inputBody', body)"
       />

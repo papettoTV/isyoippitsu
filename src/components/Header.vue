@@ -37,3 +37,16 @@ onBeforeMount(async () => {
   }
 })
 </script>
+
+<style lang="scss">
+@import "../styles/quasar.variables.scss";
+.main-title {
+  font-size: 1.3em;
+  line-height: 1.3em;
+  text-align: center;
+  text-color: $primary-color-text;
+}
+a {
+  color: $primary-color-light;
+}
+</style>

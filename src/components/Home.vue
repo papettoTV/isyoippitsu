@@ -1,12 +1,10 @@
 <template>
-  <div v-if="!isEdit && !isConfirm" class="row q-ma-lg">
-    <div class="col q-pa-lg bg-blue-1">
-      <h2>遺書を書いてみませんか？</h2>
-      <p class="q-mt-lg">
-        遺書を書くとしたら誰に書きますか？何を伝えますか？<br />
-        あなたが伝えたいこと、言っておきたいこと、その思いを一度形にしてみませんか？
-      </p>
-    </div>
+  <div v-if="!isEdit && !isConfirm" class="row q-pa-lg main-visual">
+    <h2 class="main-message">遺書を書いてみませんか？</h2>
+    <p class="q-mt-lg sub-message">
+      遺書を書くとしたら誰に書きますか？何を伝えますか？<br />
+      あなたが伝えたいこと、言っておきたいこと、その思いを一度形にしてみませんか？
+    </p>
   </div>
   <input-form v-if="!isConfirm" @inputBody="onInputBody" :inputedBody="body">
   </input-form>
@@ -49,7 +47,15 @@ defineExpose({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-.main-header {
-  background-color: #bdbdbd !important;
+@import "../styles/quasar.variables.scss";
+.main-visual {
+  background-color: $primary-color;
+}
+.main-message {
+  color: $primary-color-text;
+  font-size: 3.5em;
+}
+.sub-message {
+  color: $primary-color-light;
 }
 </style>
