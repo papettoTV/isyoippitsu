@@ -4,7 +4,7 @@
       <q-input id="body" v-model="body" filled type="textarea" />
     </div>
   </div>
-  <div class="row justify-end">
+  <div class="row justify-around">
     <div class="col-4">
       <q-btn
         color="white"

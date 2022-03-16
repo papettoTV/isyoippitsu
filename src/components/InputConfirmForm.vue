@@ -4,7 +4,7 @@
       <nl2br tag="p" :text="body" />
     </div>
   </div>
-  <div class="row justify-end">
+  <div class="row justify-around">
     <div class="col-4">
       <q-btn
         color="white"
