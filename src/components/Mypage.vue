@@ -1,8 +1,6 @@
 <template>
   <div v-if="!isEdit" class="row q-ma-lg">
-    <div class="col q-pa-xs">
-      <h2>あなたの遺書</h2>
-    </div>
+    <h2>あなたの遺書</h2>
   </div>
   <show-isyo v-if="!isEdit" @edit="onEdit" :body="body"> </show-isyo>
   <edit-isyo v-if="isEdit" :inputedBody="body" @cancel="onCancel"> </edit-isyo>
@@ -42,3 +40,11 @@ const done = async function () {
 }
 done()
 </script>
+
+<style lang="scss">
+@import "../styles/quasar.variables.scss";
+h2 {
+  color: $dark;
+  font-size: 1.5em;
+}
+</style>
