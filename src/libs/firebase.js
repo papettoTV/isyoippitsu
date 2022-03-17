@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCz9xsxV903h5zq5oCNUXnn3Ld4o4oI2aA",
-  authDomain: "isyo-894d2.firebaseapp.com",
-  projectId: "isyo-894d2",
-  storageBucket: "isyo-894d2.appspot.com",
-  messagingSenderId: "274415468618",
-  appId: "1:274415468618:web:5634c12171e40bbb74e6b3",
-  measurementId: "G-8XE4XDBH4P",
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID,
+  measurementId: process.env.VUE_APP_FIREBASE_MESUREMENT_ID,
 }
 
 export function firebaseInit() {
