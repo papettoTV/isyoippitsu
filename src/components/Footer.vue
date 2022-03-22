@@ -2,7 +2,7 @@
   <q-footer class="bg-white">
     <q-toolbar>
       <q-toolbar-title>
-        <p>
+        <p class="copyright">
           Copyright © 2022
           <a href="https://twitter.com/papettoTV">@papettoTV</a>
         </p>
@@ -15,7 +15,7 @@
 
 <style lang="scss">
 @import "../styles/quasar.variables.scss";
-p {
+.copyright {
   font-size: 0.8em;
   text-align: right;
   color: $secondary-text-color;
