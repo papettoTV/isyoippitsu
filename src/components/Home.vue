@@ -1,10 +1,14 @@
 <template>
-  <div v-if="!isEdit && !isConfirm" class="row q-pa-lg main-visual">
-    <h2 class="main-message">遺書を書いてみませんか？</h2>
-    <p class="q-mt-lg sub-message">
-      遺書を書くとしたら誰に書きますか？何を伝えますか？<br />
-      あなたが伝えたいこと、言っておきたいこと、その思いを一度形にしてみませんか？
-    </p>
+  <div v-if="!isEdit && !isConfirm" class="q-pa-lg main-visual">
+    <div class="row">
+      <h2 class="main-message">遺書を書いてみませんか？</h2>
+    </div>
+    <div class="row">
+      <p class="q-mt-lg sub-message">
+        遺書を書くとしたら誰に書きますか？何を伝えますか？<br />
+        あなたが伝えたいこと、言っておきたいこと、その思いを一度形にしてみませんか？
+      </p>
+    </div>
   </div>
   <input-form v-if="!isConfirm" @inputBody="onInputBody" :inputedBody="body">
   </input-form>

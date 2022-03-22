@@ -1,6 +1,6 @@
 <template>
   <div v-if="!isEdit" class="row q-ma-lg">
-    <h2>あなたの遺書</h2>
+    <h2 class="mypage-title">あなたの遺書</h2>
   </div>
   <show-isyo v-if="!isEdit" @edit="onEdit" :body="body"> </show-isyo>
   <edit-isyo v-if="isEdit" :inputedBody="body" @cancel="onCancel"> </edit-isyo>
@@ -43,8 +43,8 @@ done()
 
 <style lang="scss">
 @import "../styles/quasar.variables.scss";
-h2 {
-  color: $dark;
-  font-size: 1.5em;
+h2.mypage-title {
+  color: $secondary-text-color;
+  font-size: 2.5em;
 }
 </style>
