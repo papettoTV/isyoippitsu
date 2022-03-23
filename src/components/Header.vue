@@ -17,7 +17,7 @@
         </q-btn>
         {{ user }}
       </div>
-      <a href="#" v-if="!isLogon" @click="login">サインイン</a>
+      <a href="#" v-if="!isLogon" @click="login" class="signin">サインイン</a>
     </q-toolbar>
   </q-header>
 </template>
@@ -46,7 +46,7 @@ onBeforeMount(async () => {
   text-align: center;
   text-color: $primary-color-text;
 }
-a {
+.signin {
   color: $primary-color-light;
 }
 </style>

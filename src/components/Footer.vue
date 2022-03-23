@@ -16,7 +16,7 @@
 <style lang="scss">
 @import "../styles/quasar.variables.scss";
 .copyright {
-  font-size: 0.8em;
+  font-size: 0.6em;
   text-align: right;
   color: $secondary-text-color;
 }
