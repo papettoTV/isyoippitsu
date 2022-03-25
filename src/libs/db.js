@@ -29,7 +29,6 @@ export const read = async function (documentId) {
 
   const docRef = doc(db, db_name, documentId)
   const document = await getDoc(docRef)
-  console.log("document.data()", document.data())
   const isyoModel = document.data()
 
   isyo = {
