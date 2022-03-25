@@ -17,7 +17,7 @@
     <div class="col-4">
       <q-btn
         color="primary"
-        label="Twitterにログインして保存する"
+        label="Twitterにサインインして保存する"
         @click="$emit('save', body)"
       >
       </q-btn>

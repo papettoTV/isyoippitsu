@@ -6,14 +6,14 @@
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        あなたの遺書ページであればログインしてください。そうでない場合は、<a
+        あなたの遺書ページであればサインインしてください。そうでない場合は、<a
           href="/"
           >こちら</a
         >。
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn label="Twitterでログイン" color="primary" @click="login" />
+        <q-btn label="Twitterでサインイン" color="primary" @click="login" />
       </q-card-actions>
     </q-card>
   </q-dialog>
