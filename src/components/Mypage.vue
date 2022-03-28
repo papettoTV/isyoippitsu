@@ -2,8 +2,21 @@
   <div v-if="!isEdit" class="row q-ma-lg">
     <h2 class="mypage-title">あなたの遺書</h2>
   </div>
-  <show-isyo v-if="!isEdit" @edit="onEdit" :body="body"> </show-isyo>
-  <edit-isyo v-if="isEdit" :inputedBody="body" @cancel="onCancel"> </edit-isyo>
+
+  <div class="q-pa-lg">
+    <div class="row">
+      <div class="col-12">
+        <show-isyo v-if="!isEdit" @edit="onEdit" :body="body"> </show-isyo>
+        <edit-isyo v-if="isEdit" :inputedBody="body" @cancel="onCancel">
+        </edit-isyo>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p class="caution">※このページは書いた本人だけに見えます。</p>
+      </div>
+    </div>
+  </div>
   <alert v-if="!isMypage" />
 </template>
 
@@ -42,18 +55,18 @@ const onCancel = function () {
 const done = async function () {
   console.log("done", isyoId)
   const userInfo = await logon()
-  if (userInfo.name == "") {
-    isMypage.value = false
+  // if (userInfo.name == "") {
+  //   isMypage.value = false
+  // } else {
+  const readResult = await read(isyoId)
+  // isMypage?
+  if (readResult.user_name == userInfo.name) {
+    isMypage.value = true
+    body.value = readResult.body
   } else {
-    const readResult = await read(isyoId)
-    // isMypage?
-    if (readResult.user_name == userInfo.name) {
-      isMypage.value = true
-      body.value = readResult.body
-    } else {
-      isMypage.value = false
-    }
+    isMypage.value = false
   }
+  // }
 }
 done()
 </script>
@@ -63,5 +76,9 @@ done()
 h2.mypage-title {
   color: $secondary-text-color;
   font-size: 2.5em;
+}
+.caution {
+  color: $secondary-text-color;
+  font-size: 0.8em;
 }
 </style>
