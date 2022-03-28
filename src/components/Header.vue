@@ -1,7 +1,7 @@
 <template>
   <q-header reveal class="bg-primary text-white">
     <q-toolbar>
-      <q-avatar size="48px" icon="draw" />
+      <q-img src="/logo.png" style="height: 32px; width: 32px" />
       <q-toolbar-title>
         <h1 class="main-title">遺書一筆</h1>
       </q-toolbar-title>
