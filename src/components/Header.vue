@@ -41,9 +41,8 @@ onBeforeMount(async () => {
 <style lang="scss">
 @import "../styles/quasar.variables.scss";
 .main-title {
-  font-size: 1.3em;
+  font-size: 1.1em;
   line-height: 1.3em;
-  text-align: center;
   text-color: $primary-color-text;
 }
 .signin {
