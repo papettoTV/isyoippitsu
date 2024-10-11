@@ -1,7 +1,7 @@
 import {
   getAuth,
   signInWithPopup,
-  TwitterAuthProvider,
+  OAuthProvider,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth"
@@ -15,7 +15,7 @@ export const oauth = async function (body, showSaveComplete) {
     console.log(body)
     await showSaveComplete(testUserDisplayName)
   } else {
-    const provider = new TwitterAuthProvider()
+    const provider = new OAuthProvider("x.com")
     const auth = getAuth()
     const user = auth.currentUser
     if (user) {
@@ -42,7 +42,7 @@ export const oauth = async function (body, showSaveComplete) {
 }
 
 export const login = function () {
-  const provider = new TwitterAuthProvider()
+  const provider = new OAuthProvider("x.com")
   const auth = getAuth()
   signInWithPopup(auth, provider)
     .then(async (result) => {
